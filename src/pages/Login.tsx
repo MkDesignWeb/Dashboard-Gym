@@ -1,8 +1,32 @@
-import { NavigatorBar } from "../components/NavigatorBar"
-
+import { useContext, useState } from "react"
 import Logo from "../assets/svg/gym.svg"
 
+import { AuthContext } from "../contexts/auth/AuthContext"
+
+import { useNavigate } from "react-router-dom"
+
 export default function Login() {
+
+    const navigate = useNavigate()
+
+    const [email, setEmail] = useState("")
+    const [password, setpassword] = useState("")
+    const  auth = useContext(AuthContext)
+
+    const handleLogin = async () => {
+
+        if (email && password) {
+            const isLogged = await auth.signin(email, password)
+
+            if (isLogged) {
+                navigate('/')
+                location.reload()
+            } else {
+                alert("Não deu certo.")
+            }
+        }
+    }
+
     return (
         <main className="w-screen h-screen flex items-center justify-center bg-fundoAcademia bg-no-repeat bg-cover">
 
@@ -20,14 +44,14 @@ export default function Login() {
                             <label htmlFor="usuario">
                                 Usuário
                             </label>
-                            <input type="email" name="usuario" id="usuario" className="border-primary border-2 rounded-md focus:outline-none text-base text-black h-10 px-2 mt-1" />
+                            <input type="email" value={email} onChange={(e) => {setEmail(e.target.value)}} name="usuario" id="usuario" className="border-primary border-2 rounded-md focus:outline-none text-base text-black h-10 px-2 mt-1" />
                         </div>
 
                         <div className="flex flex-col relative">
                             <label htmlFor="senha">
                                 senha
                             </label>
-                            <input type="password" name="senha" id="senha" className="border-primary border-2 rounded-md focus:outline-none text-black h-10 px-2 mt-1" />
+                            <input type="password" value={password} onChange={(e) => {setpassword(e.target.value)}} name="senha" id="senha" className="border-primary border-2 rounded-md focus:outline-none text-black h-10 px-2 mt-1" />
 
                             <div>
                             <span className="text-red-500 text-sm absolute -bottom-6 right-0">
@@ -41,9 +65,11 @@ export default function Login() {
                 </div>
 
                 <div>
-                    <button type="submit" className="w-48 h-14 bg-w rounded-md bg-white text-primary text-2xl font-bold">
+
+                    <button onClick={handleLogin} type="submit" className="w-48 h-14 bg-w rounded-md bg-white text-primary text-2xl font-bold">
                         Entrar
                     </button>
+
                 </div>
             </div>
         </main>

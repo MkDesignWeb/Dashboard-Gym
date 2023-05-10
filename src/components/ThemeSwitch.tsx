@@ -3,23 +3,17 @@ import { BsMoonStarsFill, BsSunFill } from "react-icons/bs";
 
 export function ThemeSwitch() {
 
+    const storageTheme = localStorage.getItem("theme")
 
-    const [theme, setTheme] = useState(null || String);
-
-    useEffect(() => {
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            setTheme('dark');
-        }
-        else {
-            setTheme('light');
-        }
-    }, [])
+    const [theme, setTheme] = useState(storageTheme ? storageTheme : "light");
 
     useEffect(() => {
         if (theme === "dark") {
             document.body.classList.add("dark");
+            localStorage.setItem("theme", "dark")
         } else {
             document.body.classList.remove("dark");
+            localStorage.setItem("theme", "light")
         }
     }, [theme]);
 

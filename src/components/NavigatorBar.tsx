@@ -1,14 +1,12 @@
 import { ButtonNav } from "./ButtonNav"
 
-import { BsCheck2Circle, BsCheck2All, BsPersonFillAdd, BsPeopleFill, BsMoonStarsFill, BsSunFill } from "react-icons/bs"
+import { BsCheck2Circle, BsCheck2All, BsPersonFillAdd, BsPeopleFill } from "react-icons/bs"
 import Logo from "../assets/svg/gym.svg"
 import { ButtonUser } from "./ButtonUser"
-import { useState } from "react"
 import { ThemeSwitch } from "./ThemeSwitch"
 
 
 export function NavigatorBar() {
-
 
 
     return (

@@ -5,7 +5,7 @@ export function Dashboard() {
 
     return (
         <div className="flex">
-            <NavigatorBar />
+            <NavigatorBar  />
             <Outlet />
         </div>
     )

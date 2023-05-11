@@ -6,7 +6,9 @@ export default {
     extend: {
       colors: {
         "primary": "#802FE9",
-        "primaryBlack": "#1E1E1E"
+        "secondary": "#F5EEFF",
+        "primaryBlack": "#1E1E1E",
+        "secondaryBlack": "#373637"
       },
       backgroundImage: {
         "fundoAcademia": "url('./src/assets/img/fundo.png')"
@@ -16,6 +18,8 @@ export default {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar')({ nocompatible: true }),
+  ],
 }
 

@@ -1,6 +1,7 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
 import { Dashboard } from "../pages/DashBoard";
 import { RequireAuth } from "../contexts/auth/Require";
+import { CheckinsRealizados } from "../pages/CheckinsRealizados";
 
 
 export const routerDashboard = createBrowserRouter([
@@ -19,7 +20,7 @@ export const routerDashboard = createBrowserRouter([
 
       {
         path: "/checkins-realizados",
-        
+        element: <CheckinsRealizados />
       },
 
       {

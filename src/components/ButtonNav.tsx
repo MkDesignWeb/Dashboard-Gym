@@ -12,9 +12,9 @@ export function ButtonNav(props: props) {
 
     return(
         <Link to={props.goTo}>
-            <div className={`w-full h-14 flex justify-center items-center gap-3 transition-all ${url.pathname == props.goTo ? 'bg-white' : ''}`}>
+            <div className={`w-full h-14 flex justify-center items-center gap-3 transition-all ${url.pathname == props.goTo ? 'bg-white dark:bg-primaryBlack' : ''}`}>
 
-                <div className={`relative w-11 h-11 group-hover:mr-36 rounded-md transition-all flex justify-center items-center ${url.pathname == props.goTo ? 'bg-primary text-white' : 'bg-white text-primaryBlack' }`}>
+                <div className={`relative w-11 h-11 group-hover:mr-36 rounded-md transition-all flex justify-center items-center ${url.pathname == props.goTo ? 'bg-primary text-white' : 'bg-white dark:bg-primaryBlack dark:text-white text-primaryBlack' }`}>
 
                     {props.icon}
 

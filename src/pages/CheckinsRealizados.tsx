@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { ScreenBox } from "../contexts/auth/ScreenBox";
-import { SearchBox } from "../contexts/auth/SearchBox";
+import { ScreenBox } from "../components/ScreenBox";
+import { SearchBox } from "../components/SearchBox";
 
 export function CheckinsRealizados() {
 
@@ -8,65 +8,84 @@ export function CheckinsRealizados() {
     const [modo, setModo] = useState('')
 
     /* Usuarios falsos para dev */
-    const [users, serUsers] = useState([
-        {
-            nome: "carvalho diamante",
+    const [users, serUsers] = useState([        {
+            nome: "Carvalho Diamante",
             modo: "check-in",
             data: "12/12/2023 - 06h30h"
         },
         {
-            nome: "carvalho diamante2",
+            nome: "Carvalho Diamante",
             modo: "check-out",
             data: "12/12/2023 - 06h30h"
         },
         {
-            nome: "Breno dima",
+            nome: "King Breno",
+            modo: "check-in",
+            data: "12/12/2023 - 06h30h"
+        },
+        {
+            nome: "King Breno",
+            modo: "check-out",
+            data: "11/12/2023 - 09h40h"
+        },
+        {
+            nome: "Giusep Messias",
+            modo: "check-in",
+            data: "12/12/2023 - 06h30h"
+        },
+        {
+            nome: "Cascata Correia",
+            modo: "check-in",
+            data: "12/12/2023 - 06h30h"
+        },
+        {
+            nome: "Giusep Messias",
             modo: "check-out",
             data: "12/12/2023 - 06h30h"
         },
         {
-            nome: "carvalho diamante",
+            nome: "Cascata Correia",
+            modo: "check-out",
+            data: "12/12/2023 - 06h30h"
+        },
+        {
+            nome: "Rafaiel Named",
             modo: "check-in",
             data: "12/12/2023 - 06h30h"
         },
         {
-            nome: "carvalho diamante",
+            nome: "Rafaiel Named",
+            modo: "check-out",
+            data: "12/12/2023 - 06h30h"
+        },
+        {
+            nome: "ooMast3r Diff",
             modo: "check-in",
             data: "12/12/2023 - 06h30h"
         },
         {
-            nome: "carvalho diamante",
+            nome: "ooMast3r Diff",
+            modo: "check-out",
+            data: "12/12/2023 - 06h30h"
+        },
+        {
+            nome: "Daniel Saemba",
             modo: "check-in",
             data: "12/12/2023 - 06h30h"
         },
         {
-            nome: "carvalho diamante",
+            nome: "Daniel Saemba",
             modo: "check-in",
             data: "12/12/2023 - 06h30h"
         },
         {
-            nome: "carvalho diamante",
-            modo: "check-in",
+            nome: "Daniel Saemba",
+            modo: "check-out",
             data: "12/12/2023 - 06h30h"
         },
         {
-            nome: "carvalho diamante",
-            modo: "check-in",
-            data: "12/12/2023 - 06h30h"
-        },
-        {
-            nome: "carvalho diamante",
-            modo: "check-in",
-            data: "12/12/2023 - 06h30h"
-        },
-        {
-            nome: "carvalho diamante",
-            modo: "check-in",
-            data: "12/12/2023 - 06h30h"
-        },
-        {
-            nome: "carvalho diamante",
-            modo: "check-in",
+            nome: "Daniel Saemba",
+            modo: "check-out",
             data: "12/12/2023 - 06h30h"
         },
 
@@ -77,7 +96,7 @@ export function CheckinsRealizados() {
     }
 
     const modoFilter = users.filter(user => user.modo.toLowerCase().startsWith(modo.toLowerCase()))
-    const searchFilter = modoFilter.filter(modoFilter => modoFilter.nome.toLowerCase().startsWith(search.toLowerCase()))
+    const searchFilter = modoFilter.filter(modoFilter => modoFilter.nome.toLowerCase().includes(search.toLowerCase()))
 
     return (
         <ScreenBox title="Check-in / Check-out Realizados ">
@@ -91,7 +110,7 @@ export function CheckinsRealizados() {
                         <label htmlFor="FiltroCheck" className="font-medium">Filtro modo:</label>
 
                         <select id="FiltroCheck" name="select" defaultValue="Todos" onChange={(e) => setModo(e.target.value)}
-                            className="rounded-md border-2 w-auto h-10 font-medium text-center p-1 border-primary dark:bg-primaryBlack outline-none ">
+                            className="rounded-md border-2 w-auto h-10 font-medium text-center p-1 border-primary dark:bg-primaryBlack outline-none">
                             <option className="text-primary font-medium" value="">Todos</option>
                             <option className="font-medium" value="Check-in" >Check-in</option>
                             <option className="font-medium" value="Check-out">Check-out</option>
